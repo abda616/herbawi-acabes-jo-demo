@@ -23,6 +23,14 @@ jobs:
       - name: convert into docker image
         run: docker build -f container/Dockerfile -t ${ENV_VAR_DOCKER_NAME}:latest .
 
+      - name: Save Docker image to file
+        run: docker save -o ${ENV_VAR_DOCKER_NAME}.tar ${ENV_VAR_DOCKER_NAME}:latest
+
+      - name: Upload Docker image artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: docker-image
+          path: ${{ env.ENV_VAR_DOCKER_NAME }}.tar
 #  deploy:
 #    runs-on: ubuntu-latest
 #    needs: build
