@@ -4,6 +4,7 @@ env:
   ENV_VAR_REDIS: ${{ secrets.REDIS_URL }}
   ENV_VAR_KEY: ${{ vars.MY_KEY }}
   ENV_VAR_VALUE: ${{ vars.MY_VALUE }}
+  ENV_VAR_DOCKER_NAME: ${{ secrets.DOCKER_NAME }}
 
 on:
   push:
@@ -20,7 +21,7 @@ jobs:
 
       # Step 2: Set up Docker Buildx
       - name: convert into docker image
-        run: docker build -t ./container/
+        run: docker build -f container/dockerfile -t ENV_VAR_DOCKER_NAME:latest .
 
 #  deploy:
 #    runs-on: ubuntu-latest
