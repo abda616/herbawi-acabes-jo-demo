@@ -21,7 +21,7 @@ jobs:
 
       # Step 2: Set up Docker Buildx
       - name: convert into docker image
-        run: docker build -f container/dockerfile -t ENV_VAR_DOCKER_NAME:latest .
+        run: docker build -f container/dockerfile -t ${ENV_VAR_DOCKER_NAME}:latest .
 
 #  deploy:
 #    runs-on: ubuntu-latest
