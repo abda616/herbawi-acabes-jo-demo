@@ -30,11 +30,11 @@ jobs:
           path: ${{ env.ENV_VAR_DOCKER_NAME }}.tar
 
 
-#  deploy:
-#    runs-on: ubuntu-latest
-#    needs: build
-#
-#      # Step 5: Push the Docker image to Docker Hub
-#      - name: Push Docker image
-#        run: |
-#          docker push ${{ secrets.DOCKER_USERNAME }}/my-python-app:latest
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      #step:Push the Docker image to Docker Hub
+      - name: Push Docker image
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/my-python-app:latest

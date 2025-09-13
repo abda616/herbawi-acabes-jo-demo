@@ -5,8 +5,8 @@ COPY ../src .
 RUN pip install -r requirements.txt
 
 ENV ENV_VAR_REDIS="localhost"
-ENV ENV_VAR_KEY="hello"
-ENV ENV_VAR_VALUE="World! Docker"
-ENV ENV_VAR_PORT="6379"
+ENV ENV_VAR_RPORT="6379"
+ENV ENV_VAR_RKEY="hello"
+ENV ENV_VAR_RVALUE="World! Docker"
 
 CMD ["python", "./main.py"]
