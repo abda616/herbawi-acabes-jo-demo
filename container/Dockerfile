@@ -4,9 +4,9 @@ LABEL authors="Herbawi"
 COPY ../src .
 RUN pip install -r requirements.txt
 
-ENV ENV_VAR_REDIS=""
-ENV ENV_VAR_KEY=""
-ENV ENV_VAR_VALUE=""
-ENV ENV_VAR_PORT=""
+ENV ENV_VAR_REDIS="localhost"
+ENV ENV_VAR_KEY="hello"
+ENV ENV_VAR_VALUE="World! Docker"
+ENV ENV_VAR_PORT="6379"
 
 CMD ["python", "./main.py"]

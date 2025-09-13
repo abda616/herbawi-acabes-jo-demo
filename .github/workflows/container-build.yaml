@@ -3,10 +3,6 @@ name: Build and Push Docker Image
 env:
   ENV_VAR_DOCKER_NAME: ${{ vars.DOCKER_NAME }}
 
-#  ENV_VAR_REDIS: ${{ vars.REDIS_URL }}
-#  ENV_VAR_KEY: ${{ vars.MY_KEY }}
-#  ENV_VAR_VALUE: ${{ vars.MY_VALUE }}
-
 on:
   push:
     branches:
