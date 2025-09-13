@@ -5,9 +5,11 @@ import os
 env_host = os.getenv('ENV_VAR_REDIS', 'localhost')
 env_key = os.getenv('ENV_VAR_KEY', 'hello')
 env_value = os.getenv('ENV_VAR_VALUE', 'world!')
+env_port =  int(os.getenv('ENV_VAR_PORT', "6379"))
+
 
 # Connect to Redis
-redis_client = redis.StrictRedis(host=env_host, port=6379)
+redis_client = redis.StrictRedis(host=env_host, port=env_port, db=0)
 check_key = redis_client.get(env_key)
 # Set a default value if not already set
 if not check_key:
